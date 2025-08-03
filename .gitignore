@@ -1,0 +1,23 @@
+# Build and cache
+bin/
+obj/
+*.cache
+*.AssemblyInfoInputs.cache
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider IDE
+.idea/
+
+# Logs
+*.log
+
+# Secrets
+secrets.json
