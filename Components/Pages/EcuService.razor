@@ -1,0 +1,61 @@
+@page "/ecuService"
+@using EcuManagementInterface.Services
+@using EcuManagementInterface.Models
+@using EcuManagementInterface.Models.DTO
+@inject IEcuResourceService EcuResourceService
+@rendermode InteractiveServer
+
+<h3>ECU Resources By Vehicle Model</h3>
+<input type="number" @bind="vehicleModelId" placeholder="Enter Vehicle Model ID" class="form-control mb-2" />
+<button class="btn btn-primary mb-3" @onclick="LoadResources">Load Resources</button>
+
+@if (ecuResources != null && ecuResources.Any())
+{
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Vehicle Model</th>
+                <th>ECU Type</th>
+                <th>Resource Key</th>
+                <th>Resource Value</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var resource in ecuResources)
+            {
+                <tr>
+                    <td>@resource.model_name</td>
+                    <td>@resource.ecu_type</td>
+                    <td>@resource.resource_key</td>
+                    <td>@resource.resource_value</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else if (hasSearched)
+{
+    <p>No data found for Vehicle Model ID @vehicleModelId.</p>
+}
+
+
+@code {
+    /*1. Start here*/
+    private int vehicleModelId;
+    private List<EcuResourceDto> ecuResources = new();
+    private bool hasSearched = false;
+
+    private async Task LoadResources()
+    {
+        ecuResources = await EcuResourceService.GetResourcesByVehicleModelAsync(vehicleModelId);
+        hasSearched = true;
+    }
+
+    private void DownloadCsv()
+    {
+        
+    }
+}
