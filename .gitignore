@@ -3,6 +3,9 @@ bin/
 obj/
 *.cache
 *.AssemblyInfoInputs.cache
+# Ignore generated AssemblyInfo fragments
+**/AssemblyInfo*.cs
+**/*.AssemblyInfoInputs.cache
 
 # User-specific files
 *.user
