@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcuManagementInterface")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45dac33e8e312ad7605b1d21fd0a773064c9de72")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcuManagementInterface")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcuManagementInterface")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2,10 +2,10 @@ namespace EcuManagementInterface.Models.DTO;
 
 public class EcuResourceDto
 {
-    public string model_name { get; set; }
-    public string ecu_type { get; set; }
-    public string serial_number { get; set; }
-    public string resource_key { get; set; }
-    public string resource_value { get; set; }
-    public DateTime timestamp { get; set; }
+    public string ModelName { get; set; }
+    public string EcuType { get; set; }
+    public string SerialNumber { get; set; }
+    public string ResourceKey { get; set; }
+    public string ResourceValue { get; set; }
+    public DateTime TimeStampDate { get; set; }
 }
