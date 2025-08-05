@@ -5,13 +5,12 @@ using Microsoft.Data.SqlClient;
 
 namespace EcuManagementInterface.Repositories;
 
-public class EcuResourceRepository(IConfiguration configuration):IEcuResourceRepository
+public class EcuResourceRepository(IDbConnection dbConnection):IEcuResourceRepository
 {
     public async Task<List<EcuResourceDto>> GetAllResourcesByVehicleIdAsync(int vehicleModelId)
     {
-        using var connection = new SqlConnection(configuration.GetConnectionString("EcuDb"));
         var parameters = new { vehicleModelId };
-        var results = await connection.QueryAsync<EcuResourceDto>(
+        var results = await dbConnection.QueryAsync<EcuResourceDto>(
             "usp_GetEcuResourcesByVehicleModel", 
             parameters, 
             commandType: CommandType.StoredProcedure);

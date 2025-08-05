@@ -1,6 +1,8 @@
+using System.Data;
 using EcuManagementInterface.Components;
 using EcuManagementInterface.Repositories;
 using EcuManagementInterface.Services;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddScoped<IDbConnection>(sp =>
+    new SqlConnection(sp.GetRequiredService<IConfiguration>().GetConnectionString("EcuDb")));
 builder.Services.AddScoped<IEcuResourceService, EcuResourceService>();
 builder.Services.AddScoped<IEcuResourceRepository, EcuResourceRepository>();
 
