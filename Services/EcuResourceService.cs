@@ -9,6 +9,12 @@ ILogger <EcuResourceService> logger
 {
     public async Task<List<EcuResourceDto>> GetResourcesByVehicleModelAsync(int vehicleModelId)
     {
+        if (vehicleModelId <= 0)
+        {
+            logger.LogError("Invalid Vehicle Model ID");
+            return new List<EcuResourceDto>();
+        }
+        
         try
         {
             var resources = await ecuResourceRepository.GetAllResourcesByVehicleIdAsync(vehicleModelId);
