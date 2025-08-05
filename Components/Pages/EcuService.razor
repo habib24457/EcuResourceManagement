@@ -1,6 +1,5 @@
 @page "/ecuService"
 @using EcuManagementInterface.Services
-@using EcuManagementInterface.Models
 @using EcuManagementInterface.Models.DTO
 @inject IEcuResourceService EcuResourceService
 @rendermode InteractiveServer
@@ -52,10 +51,5 @@ else if (hasSearched)
     {
         ecuResources = await EcuResourceService.GetResourcesByVehicleModelAsync(vehicleModelId);
         hasSearched = true;
-    }
-
-    private void DownloadCsv()
-    {
-        
     }
 }
